@@ -6,7 +6,6 @@ const Router = require('./routes');
 var app = express();
 
 app.use(express.static(path.join(__dirname, '../react-client/build')));
-
 app.use(Router);
 
 app.get('*', (req,res) =>{
