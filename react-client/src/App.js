@@ -3,20 +3,46 @@ import './App.css';
 
 class App extends Component {
 
-  getContact = () => {
-    console.log("GET Contact");
-    fetch('/contact')
-    .then(res => res.json())
-    .then(contact => console.log(contact))
+  constructor() {
+    super();
+    this.state = {
+      view: "home"
+    }
   }
 
-  componentDidMount() {
-    this.getContact();
+  homeView = () => {
+    fetch('/home')
+    .then(res => res.json())
+    .then(home =>  {
+      this.setState(home)
+    });
   }
+
+
+  contactView = () => {
+    fetch('/contact')
+    .then(res => res.json())
+    .then(contact =>  {
+      this.setState(contact)
+    });
+  }
+
+  bookingView = () => {
+    fetch('/booking')
+    .then(res => res.json())
+    .then(booking =>  {
+      this.setState(booking)
+    });
+  }
+
 
   render() {
     return (
       <div className="App">
+        <button onClick={this.homeView}>Home</button>
+        <button onClick={this.contactView}>Contact</button>
+        <button onClick={this.bookingView}>Booking</button>
+        <span>{this.state.view}</span>
       </div>
     );
   }
