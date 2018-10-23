@@ -5,12 +5,12 @@ const Router = require('./routes');
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '../react-client/build')));
 
 app.use(Router);
 
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname+'/react-client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
