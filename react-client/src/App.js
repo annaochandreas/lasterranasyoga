@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header';
 import { logo } from './images/logo.png';
@@ -48,6 +49,7 @@ class App extends Component {
   }
 
 
+
   bookingView = () => {
     fetch('/booking')
     .then(res => res.json())
@@ -58,10 +60,39 @@ class App extends Component {
 
 
   render() {
+    
+    const Home = () => (
+      <div>
+        <h2>Home</h2>
+      </div>
+    )
+    
+    const Contact = () => (
+      <div>
+        <h2>Contact</h2>
+      </div>
+    )
+    
+    const Booking = () => (
+      <div>
+        <h2>Booking</h2>
+      </div>
+    )
+
     return (
       <div className="App">
+
+        <ul>
+          <li><Link to='/home'>Home</Link></li>
+          <li><Link to='/contact'>Contact</Link></li>
+          <li><Link to='/booking'>Booking</Link></li>
+        </ul>
+
         <Header menu={ this.state.menu } logo={ logo } />
         <span>{this.state.view}</span>
+        <Route path='/home' component={ Home } />
+        <Route path='/contact' component={ Contact } />
+        <Route path='/booking' component={ Booking } />
       </div>
     );
   }
