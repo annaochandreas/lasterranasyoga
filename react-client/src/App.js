@@ -70,6 +70,7 @@ class App extends Component {
     const Contact = () => (
       <div>
         <h2>Contact</h2>
+        <p>The contact view</p>
       </div>
     )
     
