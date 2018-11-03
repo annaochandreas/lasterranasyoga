@@ -1,0 +1,27 @@
+.Header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.Header__logo img {
+	width: 200px;
+}
+
+.Header__menu {
+	display: flex;
+	align-items: center;
+	margin-right: 30px;
+}
+
+.Header__menu ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.Header__menu ul li {
+	padding-left: 10px;
+	padding-right: 10px;
+	display: inline;
+}

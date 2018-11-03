@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header';
-import { logo } from './images/logo.png';
+import Header from './Components/Header/Header';
+import Home from './Components/Views/Home';
+import Food from './Components/Views/Food';
+import Booking from './Components/Views/Booking';
+import Contact from './Components/Views/Contact';
+import logo from './images/logo.png';
+
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      view: "home",
       menu: [
         {
           name: "Home",
           key: "home",
-          changeView: this.homeView
+          route: "/home",
+          component: Home
         },
         {
           name: "Contact",
           key: "contact",
-          changeView: this.contactView
+          route: "/contact",
+          component: Contact
+        },
+        {
+          name: "Food",
+          key: "food",
+          route: "/food",
+          component: Food
         },
         {
           name: "Booking",
           key: "booking",
-          changeView: this.bookingView
+          route: "/booking",
+          component: Booking
         }
       ]
     }
@@ -61,39 +74,16 @@ class App extends Component {
 
   render() {
     
-    const Home = () => (
-      <div>
-        <h2>Home</h2>
-      </div>
-    )
+    let routes = this.state.menu.map((route, index) => {
+      return (
+        <Route key={ route.key } path={ route.route } component={ route.component } />
+      )
+    })
     
-    const Contact = () => (
-      <div>
-        <h2>Contact</h2>
-        <p>The contact view</p>
-      </div>
-    )
-    
-    const Booking = () => (
-      <div>
-        <h2>Booking</h2>
-      </div>
-    )
-
     return (
       <div className="App">
-
-        <ul>
-          <li><Link to='/home'>Home</Link></li>
-          <li><Link to='/contact'>Contact</Link></li>
-          <li><Link to='/booking'>Booking</Link></li>
-        </ul>
-
         <Header menu={ this.state.menu } logo={ logo } />
-        <span>{this.state.view}</span>
-        <Route path='/home' component={ Home } />
-        <Route path='/contact' component={ Contact } />
-        <Route path='/booking' component={ Booking } />
+        { routes }
       </div>
     );
   }
