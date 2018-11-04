@@ -8,7 +8,8 @@ var app = express();
 app.use(express.static(path.join(__dirname, '../react-client/build')));
 app.use(Router);
 
-app.get('*', (req,res) =>{
+
+app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname+'/react-client/build/index.html'));
 });
 

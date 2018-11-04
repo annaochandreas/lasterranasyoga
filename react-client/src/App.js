@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header/Header';
 import Home from './Components/Views/Home';
 import Food from './Components/Views/Food';
 import Booking from './Components/Views/Booking';
 import Contact from './Components/Views/Contact';
+import Admin from './Components/Views/Admin';
 import logo from './images/logo.png';
 
 
@@ -38,6 +39,12 @@ class App extends Component {
           key: "booking",
           route: "/booking",
           component: Booking
+        },
+        {
+          name: "Admin",
+          key: "admin",
+          route: "/admin",
+          component: Admin
         }
       ]
     }
@@ -58,16 +65,6 @@ class App extends Component {
     .then(res => res.json())
     .then(contact =>  {
       this.setState(contact)
-    });
-  }
-
-
-
-  bookingView = () => {
-    fetch('/booking')
-    .then(res => res.json())
-    .then(booking =>  {
-      this.setState(booking)
     });
   }
 

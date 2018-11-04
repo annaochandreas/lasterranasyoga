@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = (props) => {
-  console.log(props);
 
   let menu = props.menu.map((item, i) => {
     return (

@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/booking', function(req, res, next) {
+router.get('/api/booking', function(req, res, next) {
   //res.sendFile('');
-  res.json({})
+  console.log(__dirname);
+  let date = new Date();
+  res.json({"date": date})
 });
 
 module.exports = router;
