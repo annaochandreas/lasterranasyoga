@@ -9,8 +9,10 @@ app.use(express.static(path.join(__dirname, '../react-client/build')));
 app.use(Router);
 
 
+
 app.get('*', (req,res) => {
-    res.sendFile(path.join(__dirname+'/react-client/build/index.html'));
+  console.log("Some route enterned");
+  res.sendFile(path.join(__dirname, '../react-client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
