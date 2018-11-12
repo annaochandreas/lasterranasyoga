@@ -4,6 +4,8 @@ const parser = require('body-parser');
 const Router = require('./routes');
 
 var app = express();
+require('./database');
+
 
 app.use(express.static(path.join(__dirname, '../react-client/build')));
 app.use(Router);
