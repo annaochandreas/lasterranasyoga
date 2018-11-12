@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Las Terranas Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd react-client && npm install --only=dev && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Heroku"
+  ],
+  "author": "Andreas Hansson",
+  "license": "ISC",
+  "engines": {
+    "node": "10.12.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
