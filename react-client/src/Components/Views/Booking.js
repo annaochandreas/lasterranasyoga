@@ -2,29 +2,39 @@ import React from 'react';
 
 
 class Booking extends React.Component {
-	
+
 	constructor(props) {
 		super(props);
 		this.state = {
-			date: null
+			bookings: null
 		}
 	}
 
 
 	componentDidMount() {
-		fetch('/api/booking')
+		fetch('/api/bookings')
     	.then(res => res.json())
-    	.then(booking =>  {
-    		console.log(booking);
+    	.then(bookings =>  {
     		this.setState({
-    			date: booking.date
+					bookings: bookings
     		});
     	});
 	}
-	
+
 	render() {
+		let bookings = this.state.bookings;
+		if (bookings !== null) {
+			bookings = this.state.bookings.map((booking, index) => {
+				return <tr key={index}><td>{booking._id}</td><td>{booking.name}</td></tr>
+			})
+		}
 		return (
-			<div>{ this.state.date }</div>
+			<table>
+				<thead><tr><td>ID</td><td>Booked By</td></tr></thead>
+				<tbody>
+					{ bookings }
+				</tbody>
+			</table>
 		)
 	}
 }
