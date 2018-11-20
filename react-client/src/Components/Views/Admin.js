@@ -32,6 +32,7 @@ class Admin extends React.Component {
 			console.log(booking);
 			return (
 				<div key={index}>
+					<ul><li>Booking nr:</li><li>{ booking._id }</li></ul>
 					<ul><li>Name:</li><li>{ booking.name }</li></ul>
           <ul><li>Email:</li><li>{ booking.email }</li></ul>
 					<ul><li>Number of persons: </li><li>{ booking.persons }</li></ul>

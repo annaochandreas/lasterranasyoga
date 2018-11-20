@@ -21,21 +21,24 @@ class Booking extends React.Component {
     	});
 	}
 
+	submitHandler = (e) => {
+		e.preventDefault();
+	}
+
 	render() {
-		let bookings = this.state.bookings;
-		if (bookings !== null) {
-			bookings = this.state.bookings.map((booking, index) => {
-				return <tr key={index}><td>{booking._id}</td><td>{booking.name}</td></tr>
-			})
-		}
+
 		return (
-			<table>
-				<thead><tr><td>ID</td><td>Booked By</td></tr></thead>
-				<tbody>
-					{ bookings }
-				</tbody>
-			</table>
-		)
+      <div>
+				<form onSubmit={ this.submitHandler }>
+					<input type="text" name="name" />
+					<input type="email" name="email" />
+					<input type="text" name="persons" />
+					<input type="text" name="start_date" />
+					<input type="text" name="end_date" />
+					<input type="submit" onClick={ this.submitHandler } />
+				</form>
+			</div>
+    )
 	}
 }
 
