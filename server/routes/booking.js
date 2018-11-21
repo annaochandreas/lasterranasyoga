@@ -27,6 +27,7 @@ router.get('/api/bookings/:id', function(req, res, next) {
 
 
 router.post('/api/bookings', (req, res, next) => {
+  console.log(req.body);
   const data = {
     name: req.body.name,
     email: req.body.email,
