@@ -1,4 +1,6 @@
 import React from 'react';
+import Table from '../Table/Table';
+
 
 class Admin extends React.Component {
   constructor(props) {
@@ -21,36 +23,45 @@ class Admin extends React.Component {
 
 
 	render() {
-
-		let bookings = (
-			<div>No bookings</div>
-		)
-
 		if (this.state.bookings.length !== 0) {
-
-		bookings = this.state.bookings.map((booking, index) => {
-			console.log(booking);
+			let bookings = this.state.bookings.map((booking, index) => {
+				return (
+					<tr key = { index }>
+						<td>{ booking._id }</td>
+						<td>{ booking.name }</td>
+						<td>{ booking.email }</td>
+						<td>{ booking.persons }</td>
+						<td>{ booking.booking_date }</td>
+						<td>{ booking.start_date }</td>
+						<td>{ booking.end_date }</td>
+					</tr>
+				)
+			});
 			return (
-				<div key={index}>
-					<ul><li>Booking nr:</li><li>{ booking._id }</li></ul>
-					<ul><li>Name:</li><li>{ booking.name }</li></ul>
-          <ul><li>Email:</li><li>{ booking.email }</li></ul>
-					<ul><li>Number of persons: </li><li>{ booking.persons }</li></ul>
-					<ul><li>Booking date: </li><li></li>{ booking.booking_date }</ul>
-				</div>
+				<table>
+					<thead>
+						<tr>
+							<td>Order nr:</td>
+							<td>Name</td>
+							<td>Email</td>
+							<td>Persons</td>
+							<td>Booking date:</td>
+							<td>Start</td>
+							<td>End</td>
+						</tr>
+					</thead>
+					<tbody>
+						{ bookings }
+					</tbody>
+				</table>
 			)
-		});
+		}
+		else {
+			return (
+				<div>No bookings</div>
+			)
+		}
 	}
-
-
-
-		console.log(this.state.bookings);
-
-		return (
-			<div>{ bookings }</div>
-		)
-	}
-
 }
 
 export default Admin;

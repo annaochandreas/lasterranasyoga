@@ -12,21 +12,9 @@ class Booking extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	/*
-	componentDidMount() {
-		fetch('/api/bookings')
-    	.then(res => res.json())
-    	.then(bookings =>  {
-    		this.setState({
-					bookings: bookings
-    		});
-    	});
-	}
-	*/
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state.bookings);
 		const data = this.state.bookings;
 		fetch('/api/bookings', {
 			method: 'POST',
@@ -36,7 +24,9 @@ class Booking extends React.Component {
 			}
 		})
 		.then(res => res.json())
-		.then(response => console.log('Success: ', JSON.stringify(response)))
+		.then(response => {
+			console.log('Success: ', JSON.stringify(response))
+    })
 		.catch(error => console.error('Error:', error));
 	}
 
@@ -56,8 +46,8 @@ class Booking extends React.Component {
 					<input type="text" name="name" placeholder="Name" value={ this.state.bookings.name } onChange={ this.handleChange } /><br />
 					<input type="email" name="email" placeholder="Email" value={ this.state.bookings.email } onChange={ this.handleChange } /><br />
 					<input type="text" name="persons" placeholder="Number of persons" value={ this.state.bookings.persons } onChange={ this.handleChange } /><br />
-					<input type="text" name="start_date" placeholder="Start Date" value={ this.state.bookings.start_date } onChange={ this.handleChange } /><br />
-					<input type="text" name="end_date" placeholder="End Date" value={ this.state.bookings.end_date } onChange={ this.handleChange } /><br />
+					<input type="date" name="start_date" placeholder="Start Date" value={ this.state.bookings.start_date } onChange={ this.handleChange } /><br />
+					<input type="date" name="end_date" placeholder="End Date" value={ this.state.bookings.end_date } onChange={ this.handleChange } /><br />
 					<input type="submit" />
 				</form>
 			</div>
