@@ -37,7 +37,6 @@ class Admin extends React.Component {
 						end_date: booking.end_date
 					}
 				});
-				console.log(modifiedList);
 				return (
 					<Table
 						title={ "Bookings" }
