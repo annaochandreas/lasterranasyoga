@@ -24,37 +24,29 @@ class Admin extends React.Component {
 
 	render() {
 		if (this.state.bookings.length !== 0) {
-			let bookings = this.state.bookings.map((booking, index) => {
+				const tableHeader = ["Order nr", "Name", "Email", "Persons", "Booking date", "Start", "End"];
+				let tableBody = this.state.bookings;
+				let modifiedList = this.state.bookings.map(booking => {
+					return {
+						order_nr: booking._id,
+						name: booking.name,
+						email: booking.email,
+						persons: booking.persons,
+						booking_date: booking.booking_date,
+						start_date: booking.start_date,
+						end_date: booking.end_date
+					}
+				});
+				console.log(modifiedList);
 				return (
-					<tr key = { index }>
-						<td>{ booking._id }</td>
-						<td>{ booking.name }</td>
-						<td>{ booking.email }</td>
-						<td>{ booking.persons }</td>
-						<td>{ booking.booking_date }</td>
-						<td>{ booking.start_date }</td>
-						<td>{ booking.end_date }</td>
-					</tr>
+					<Table
+						title={ "Bookings" }
+						tableHeader={ tableHeader }
+						tableBody={ modifiedList }
+						defaultRows={10}
+					/>
 				)
-			});
-			return (
-				<table>
-					<thead>
-						<tr>
-							<td>Order nr:</td>
-							<td>Name</td>
-							<td>Email</td>
-							<td>Persons</td>
-							<td>Booking date:</td>
-							<td>Start</td>
-							<td>End</td>
-						</tr>
-					</thead>
-					<tbody>
-						{ bookings }
-					</tbody>
-				</table>
-			)
+
 		}
 		else {
 			return (
