@@ -1,0 +1,9 @@
+.Table .ReactTable .rt-table .rt-tbody .rt-tr-group:nth-child(odd) {
+  background-color: #FFF;
+  color: #000000;
+}
+
+.Table .ReactTable .rt-table .rt-tbody .rt-tr-group:nth-child(even) {
+  background-color: #F5F5F5;
+  color: #000000;
+}
