@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
+import './Admin.css';
 
 class Admin extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class Admin extends React.Component {
 					}
 				});
 				return (
-					<Table dataSource={modifiedList} columns={this.state.columns} />
+					<Table className="Table-antd-custom" dataSource={modifiedList} columns={this.state.columns} />
 				)
 
 		}
