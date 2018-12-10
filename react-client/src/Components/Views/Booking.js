@@ -1,4 +1,16 @@
 import React from 'react';
+import { DatePicker } from 'antd';
+import { Form } from 'antd';
+import { Input } from 'antd';
+import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+import { LocaleProvider } from 'antd';
+import sv_SE from 'antd/lib/locale-provider/sv_SE';
+import da_DK from 'antd/lib/locale-provider/da_DK';
+import 'moment/locale/sv';
+import 'moment/locale/da';
+
 
 
 class Booking extends React.Component {
@@ -42,6 +54,13 @@ class Booking extends React.Component {
 
 		return (
       <div>
+				<Form.Item>
+					<Input.Group>
+						<Input.Search />
+					</Input.Group>
+				</Form.Item>
+
+				<DatePicker locale={ sv_SE } defaultValue={moment(new Date(), 'YYYY-MM-DD')} />
 				<form onSubmit={ this.handleSubmit }>
 					<input type="text" name="name" placeholder="Name" value={ this.state.bookings.name } onChange={ this.handleChange } /><br />
 					<input type="email" name="email" placeholder="Email" value={ this.state.bookings.email } onChange={ this.handleChange } /><br />

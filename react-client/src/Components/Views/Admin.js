@@ -1,12 +1,20 @@
 import React from 'react';
-import Table from '../Table/Table';
-
+import { Table } from 'antd';
 
 class Admin extends React.Component {
   constructor(props) {
 		super(props);
 		this.state = {
-			bookings: []
+			bookings: [],
+      columns: [
+        {title: 'Order nr', dataIndex: 'order_nr', key: 'order_nr'},
+				{title: 'Name', dataIndex: 'name', key: 'name'},
+				{title: 'Email', dataIndex: 'email', key: 'email'},
+				{title: 'Persons', dataIndex: 'persons', key: 'persons'},
+				{title: 'Booking Date', dataIndex: 'booking_date', key: 'booking_date'},
+				{title: 'Start Date', dataIndex: 'start_date', key: 'start_date'},
+				{title: 'End Date', dataIndex: 'end_date', key: 'end_date'}
+      ]
 		}
 	}
 
@@ -23,11 +31,11 @@ class Admin extends React.Component {
 
 
 	render() {
+
 		if (this.state.bookings.length !== 0) {
-				const tableHeader = ["Order nr", "Name", "Email", "Persons", "Booking date", "Start", "End"];
-				let tableBody = this.state.bookings;
-				let modifiedList = this.state.bookings.map(booking => {
+				let modifiedList = this.state.bookings.map((booking, index) => {
 					return {
+						key: index,
 						order_nr: booking._id,
 						name: booking.name,
 						email: booking.email,
@@ -38,12 +46,7 @@ class Admin extends React.Component {
 					}
 				});
 				return (
-					<Table
-						title={ "Bookings" }
-						tableHeader={ tableHeader }
-						tableBody={ modifiedList }
-						defaultRows={10}
-					/>
+					<Table dataSource={modifiedList} columns={this.state.columns} />
 				)
 
 		}
