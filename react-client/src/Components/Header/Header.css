@@ -3,8 +3,9 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	min-height: 150px;
-	margin-bottom: 20px;
+}
+
+.Header__logo {
 }
 
 .Header__logo img {

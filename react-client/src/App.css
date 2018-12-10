@@ -11,12 +11,23 @@ html, body, #root, .App {
   justify-content: space-between;
 }
 
+.View {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
+/*
 body {
   background: url('./images/background.jpg');
   background-size: cover;
   background-repeat: repeat;
   margin: auto;
 }
+*/
+
 
 @media (min-width: 1367px) {
   body {

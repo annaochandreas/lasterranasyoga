@@ -86,7 +86,7 @@ class App extends Component {
   render() {
     let routes = this.state.menu.map((route, index) => {
       return (
-        <Route key={ route.key } path={ route.route } component={ route.component } />
+        <Route key={ route.key } path={ route.route } component={ route.component } className="View" />
       )
     })
 
@@ -94,7 +94,6 @@ class App extends Component {
       <div className="App">
         <Header menu={ this.state.menu } logo={ logo } toggleMenu={ this.toggleMenu } />
         { routes }
-        <Footer />
       </div>
     );
   }
