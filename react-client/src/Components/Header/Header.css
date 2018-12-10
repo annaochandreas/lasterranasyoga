@@ -1,4 +1,5 @@
 .Header {
+	background-color: rgba(255, 255, 255, 0.95);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -6,6 +7,8 @@
 
 .Header__logo img {
 	width: 200px;
+	min-width: 50px;
+	max-height: 100%;
 }
 
 .Header__menu {
@@ -24,4 +27,40 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	display: inline;
+}
+
+.ham-button {
+	height: 80px;
+	width: 80px;
+	background: url('../../images/hamburger.png');
+	background-size: cover;
+}
+
+
+@media (max-width: 580px) {
+  .Header__menu ul {
+    /*
+		*/
+		display: none;
+		background-color: white;
+		position: absolute;
+		top: 135px;
+		right: 0;
+		left: 0;
+  }
+
+	.Header__menu ul li {
+		display: block;
+		padding: 20px;
+	}
+
+	.ham-button {
+		display: block;
+	}
+}
+
+@media (min-width:581px) {
+	.ham-button {
+		display: none;
+	}
 }
